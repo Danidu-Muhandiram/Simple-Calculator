@@ -7,7 +7,7 @@ float multiplication(float a, float b);
 float divide(float a, float b);
 
 //declare variables
-float number01,number02;
+float number01=0,number02=0;
 char arithmetic_operator;
 
 int main()
@@ -25,8 +25,19 @@ int main()
 				break;
 		case '*': printf("Result : %.2f",multiplication(number01, number02));
 				break;
-		case '/': printf("Result : %.2f",divide( number01, number02));
+		case '/': 
+		        //print error message if user try to enter 0 as number02
+		        if(number02==0)
+		        {
+		        	printf("Can't divide by zero(0)\n");
+				}
+				
+				else
+				{
+		        	printf("Result : %.2f",divide(number01, number02));
+				}
 				break;
+				
 		default : printf("Invalid operator\n");
 		
 	}
@@ -57,5 +68,6 @@ float multiplication(float a, float b)
 //function-divide
 float divide(float a, float b)
 {
+	
 	return a/b;
-} 
+}
